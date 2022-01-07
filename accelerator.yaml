@@ -1,0 +1,22 @@
+accelerator:
+  displayName: Sensors
+  description: A template app to control your sensors
+  iconUrl: https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Light_sensor.png/220px-Light_sensor.png
+  tags: []
+  options:
+  - name: workloadName
+    inputType: text
+    label: The name you'd like the workload to have.
+    display: true
+    defaultValue: ""
+    required: true
+engine:
+  merge:
+  - include: ['**/*']
+    exclude: ['workload.yaml']
+  - include: ['workload.yaml']
+    chain:
+    - type: ReplaceText
+      substitutions:
+      - text: sensors
+        with: "#workloadName"

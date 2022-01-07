@@ -1,0 +1,82 @@
+<!--
+RabbitMQ OAuth Example App
+Copyright 2020 VMware, Inc.
+
+SPDX-License-Identifier: Apache-2.0
+
+This product is licensed to you under the Apache 2.0 license
+(the "License").  You may not use this product except in compliance
+with the Apache 2.0 License.
+
+This product may include a number of subcomponents with separate
+copyright notices and license terms. Your use of these subcomponents
+is subject to the terms and conditions of the subcomponent's license,
+as noted in the LICENSE file.
+-->
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<style>
+    table {
+        border: 3px solid black;
+        margin-top: 5rem;
+    }
+
+    tr {
+        min-height: 100px;
+    }
+
+    td {
+        border: 1px solid black;
+        padding: 1rem;
+    }
+
+    .status-box {
+        min-width: 100px;
+        min-height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 40px;
+        font-weight: bold;
+    }
+</style>
+
+<head>
+    <title>Sensors Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+    <h2>Sensors Application</h2>
+
+    <div th:switch="${open}"> 
+        <div th:case="true" class="status-box" style="background-color: lightgreen;">OPEN</div>
+        <div th:case="false" class="status-box" style="background-color: lightcoral;">CLOSED</div>
+    </div>
+
+
+    <!-- table showing connection status -->
+    <table>
+        <tr>
+            <td>Service Connection Status</td>
+            <td>
+                <pre th:text="${connection_status}"></pre>
+            </td>
+        </tr>
+        <tr>
+            <td>Message sent</td>
+            <td>
+                <pre th:text="${message_sent}"></pre>
+            </td>
+        </tr>
+        <tr>
+            <td>Message received</td>
+            <td>
+                <pre th:text="${message_received}"></pre>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

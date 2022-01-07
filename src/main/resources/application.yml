@@ -1,0 +1,16 @@
+org:
+  springframework:
+    cloud:
+      bindings:
+        boot:
+          enable: true
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    template:
+      default-receive-queue: sample-queue
+      exchange: amq.fanout
+      routing-key: baz.bam
